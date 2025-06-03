@@ -37,13 +37,24 @@ func canMakeIt(e engine, miles uint8) {
 	}
 }
 
+func needsFillUp(e engine) {
+	if e.milesLeft() < 25 {
+		fmt.Println("Stop to get gas")
+	} else {
+		fmt.Println("Good to go")
+	}
+}
+
 func main() {
 	var myEngine gasEngine = gasEngine{20, 15} //owner{"Shamar"}}
-	myEngine.mpg = 25
+	myEngine.mpg = 19
 	fmt.Println(myEngine.mpg, myEngine.gallons) //, myEngine.name)
 
 	//fmt.Printf("Total miles left in tank: %v", myEngine.milesLeft())
 
 	var myTesla electricEngine = electricEngine{25, 15}
 	canMakeIt(myTesla, 77)
+
+	myEngine.gallons = 1
+	needsFillUp(myEngine)
 }
